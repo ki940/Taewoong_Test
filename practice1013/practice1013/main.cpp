@@ -383,6 +383,7 @@ int main()
 */
 
 
+/*
 //문자열 안에서 문자 검색하기(본문은 문자로 문자열 검색하기가 됨, 물어볼것)
 #include<string.h>
 int main()
@@ -398,5 +399,8 @@ int main()
 		ptr = strchr(ptr + 1, 'a'); // 포인터에 1을 더해 검색된 a다음의 a를 찾음
 		aNum++;
 	}
-	printf("검색된a의 횟수? %d", aNum);
+	printf("검색된a의 횟수? %d", aNum); 
 }
+
+*/
+
