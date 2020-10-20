@@ -296,7 +296,7 @@ int main()
 
 	printf("%d\n", strlen(s1));    // 5: strlen 함수로 문자열의 길이를 구함
 	printf("%d\n", strlen(s2));    // 5: strlen 함수로 문자열의 길이를 구함
-	printf("%d\n", sizeof(s1)); 
+	printf("%d\n", sizeof(s1));
 	printf("%d\n", sizeof(s2));
 	printf("%d\n", sizeof(s3));
 	printf("%d\n", sizeof(s3)/sizeof(int));
@@ -308,14 +308,95 @@ int main()
 	printf("%p %p %p\n", s4-1, s4, s4+1);//포인터의 주소값
 	printf("%d %d %d\n", *(s4 - 1), *s4, *(s4 + 1));//포인터의 주소값
 
-	
+
 	return 0;
 }
 */
 
+/*
+//포인터와 배열 그리고 문자열
 int main()
 {
-	int num[5];
-	num[5] = 5;
-	printf("%d %d", num[5], num[6]);
+	const char *s1 = "Hello, world!";       // char 포인터에 문자열의 메모리 주소를 저장
+	char s2[20] = "Hello, world!";    // char 배열에 문자열 저장
+	const char * s3 = s1;      // char 배열에 문자열 저장(배열의 크기 생략)
+	const char* & s4 = s1;	//문자열 래퍼런스 사용: s1 에 대한 또 다른 이름(별명)
+	s1 = "Hello2";
+}
+
+*/
+
+
+//2020_10_20
+
+/*
+
+//문자열의 길이를 구하고 비교하기
+//임의의 문자열을 받을 때 미리 배열을 설정하지 않는 방법 물어볼 것
+
+#include<string.h> // 문자열 관리 헤더
+
+int main()
+{
+	const char *s1 = "StringLongChack";
+	char s2[20] = "String";
+
+	strlen(s1) > strlen(s2) ? printf("첫번째 문자열이 크다\n") : strlen(s1) == strlen(s2) ? printf("두 문자열은 같다\n") : printf("두번째 문자열이 크다\n");
+
+	return 0;
+}
+
+*/
+
+
+/*
+//문자열의 복사
+
+#include<string.h>
+
+int main()
+{
+	char s1[10] = "copytest";
+	char s2[10];
+
+	strcpy(s2, s1); // s2문자열에 s1복사
+
+	printf("%s\n", s2);
+}
+*/
+
+
+/*
+//두 문자열 붙이기
+//동적 메모리 할당과 malloc(sizeof(char)*문자열의 길이) 등을 물어본다
+#include<string.h>
+
+int main()
+{
+	char a[10] = "attech";
+	char b[20] = "Test"; // a문자열을 붙여 포함할 것이기에 두 문자열의 합만큼 배열이 커야한다
+
+	strcat(b, a); // b에 a를 붙임,
+	printf("%s", b);
+}
+
+*/
+
+
+//문자열 안에서 문자 검색하기(본문은 문자로 문자열 검색하기가 됨, 물어볼것)
+#include<string.h>
+int main()
+{
+	char s1[30] = "a about find a in charstring";
+	int aNum = 0; // 검색된 a의 갯수
+
+	char *ptr = strchr(s1, 'a'); //d로 시작하는 문자열을 s1에서 검색해서 그 문자열의 시작위치를 반환한다?
+
+	while (ptr != NULL)
+	{
+		printf("%s\n", ptr); // 검색된 문자열 출력
+		ptr = strchr(ptr + 1, 'a'); // 포인터에 1을 더해 검색된 a다음의 a를 찾음
+		aNum++;
+	}
+	printf("검색된a의 횟수? %d", aNum);
 }
