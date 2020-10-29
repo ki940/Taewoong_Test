@@ -213,17 +213,31 @@ int main()
 */
 
  
- /*
+ 
 //포인터와 배열 그리고 문자열
 int main()
 {
 	const char *s1 = "Hello, world!";       // char 포인터에 문자열의 메모리 주소를 저장
 	char s2[20] = "Hello, world!";    // char 배열에 문자열 저장
 	const char * s3 = s1;      // char 배열에 문자열 저장(배열의 크기 생략)
+
+	//s4는 s1을 따라간다, 
 	const char* & s4 = s1;	//문자열 래퍼런스 사용: s1 에 대한 또 다른 이름(별명)
-	s1 = "Hello2";
+	
+	printf("s1 %p %s\n", s1, s1);
+	printf("s2 %p %s\n", s2, s2);
+	printf("s3 %p %s\n", s3, s3);
+	printf("s4 %p %s\n", s4, s4);
+
+	printf("s1에 Hello2 대입\n");
+	s1 = "Hello2"; // s1에 새로운 문자열을 대입했고 문자열 래퍼런스를 사용한 s4는 바뀐 s1의 주소를 받는다
+	printf("s1 %p %s\n", s1, s1);
+	printf("s2 %p %s\n", s2, s2);
+	printf("s3 %p %s\n", s3, s3);
+	printf("s4 %p %s\n", s4, s4);
+	return 0;
 }
-*/
+
 
 
 
@@ -424,3 +438,6 @@ int main()
 */
 
 
+//문자열, 배열, 포인터에 대해 정리하기
+//문자열은  NULL 또는 '\0'로 끝나는 문자들로 이루어진 배열이다
+//
