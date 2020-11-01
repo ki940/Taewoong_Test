@@ -18,5 +18,14 @@
     <ClCompile Include="main.cpp">
       <Filter>리소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="myStrcut.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MyIf.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFor.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
