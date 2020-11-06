@@ -1,3 +1,4 @@
+#include<stdio.h>
 
 // 지역변수 전역변수
 //call by value
