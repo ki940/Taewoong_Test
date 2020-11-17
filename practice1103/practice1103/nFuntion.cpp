@@ -1,4 +1,12 @@
-#include<stdio.h>
+#include "header.h"
+#include "nFunction.h"
+
+
+//if 1번 대소비교
+void Compare(int x, int y)
+{
+	printf("%c", (x > y ? '>' : x == y ? '=' : '<')); //삼항연산자
+}
 
 // 지역변수 전역변수
 //call by value
@@ -29,18 +37,6 @@ void swap2(int* a, int* b) { // a의 주소 b의 주소를 인자로 호출
 	printf("%d, %d\n", *a, *b);
 }
 
-/*
-//
-int main()
-{
-	int number[10];
-	Random3(number, 10);
-	printf("%f\n",average(number, 10));
-	//print_array(Random3(number, 10), 10);
-	return 0;
-}
-*/
-
 
 //문자열, 배열, 포인터에 대해 정리하기
 //문자열은  NULL 또는 '\0'로 끝나는 문자들로 이루어진 배열이다
@@ -51,47 +47,18 @@ int main()
 //포인터의 크기는 운영체제 크기에 따라 32bit시 4byte, 64bit 시 8byte가 된다
 
 
-/*
-//래퍼런스 변수의 이해, 래퍼런스 사용시와 미 사용시 어떤 차이가 있는가
-//레퍼런스 참조 == 변수형 & 변수명 = 변수명 ex) int & ref = value1
-int main() {
-	int value1 = 5;
-	int value2 = 6;
-	printf("val1 %p :  %d\n", &value1, value1);
-	printf("val2 %p :  %d\n", &value2, value2);
 
-	int ref = value1;
-	printf("ref %p :  %d\n", &ref, ref);
-	printf("val1 %p :  %d\n", &value1, value1);
-
-	ref = value2;
-	printf("ref %p :  %d\n", &ref, ref);
-	printf("val2 %p :  %d\n", &value2, value2);
-
-	printf("val1 %p :  %d\n", &value1, value1);
-
-}
-*/
-
-/*
 //래퍼런스를 이용한 스왑, 포인터가 아니더라도 함수 외부의 값이 바뀜을 확인할수 있다.
-void swap3(int & a, int & b)
+void swap3(int & x, int & y)
 {
-	printf("%p %d %p %d \n", &a, a, &b, b);
-	int temp = a;
-	a = b;
-	b = temp;
-	printf("%p %d %p %d \n", &a, a, &b, b);
+	printf("swap3: %p %d %p %d \n", &x, x, &y, y);
+	int temp = x; 
+	x = y;
+	y = temp;
+	printf("swap3: %p %d %p %d \n", &x, x, &y, y);
+}
 
-}
-int main()
-{
-	int a = 3,b = 17;
-	printf("%p %d %p %d \n", &a, a, &b, b);
-	swap3(a, b);
-	printf("%p %d %p %d \n", &a, a, &b, b);
-}
-*/
+
 
 
 //컴퓨터의 메모리 구조 정리
@@ -115,39 +82,126 @@ int main()
 //new, malloc, calloc, 
 
 
-//동적할당  malloc(memory allocation)(stdlib.h 에 선언되어있으므로 c에서 사용시 꼭 include해줘야한다)
-//인자로 전달된 크기의 바이트 수 만큼 메모리 공간을 만들며 void * 로 반환되는 함수이며
-//사용방법은 (값을 받아올 변수) = (변수의 데이터 타입 *) malloc(sizeof(변수 데이터타입) * 사용할 크기)
-//ex) int arr = (int *) malloc(sizeof(int) * 10) == int형 데이터타입의 10개 공간을 할당
-//사용 후 반드시 free를 사용할 것(메모리 해제) ex) free(arr) << free안에 들어가는 이름은 대입한 변수의 이름(주소?)
-//memset == 알아볼 것@@@@@@@
-//memset은 배열이나 포인터를 초기화하는 함수이다
-//memset(초기화할 변수명, 초기화로 들어갈 숫자, 변수의 크기)
 
-/*
-//mallco calloc memset 이해
-void main()
+//배열을 이용해 배열 원소의 평균 구하기, 
+float average(int * array_name, int array_length)//float형으로 선언했으므로 출력할 때 %f로 출력함을 잊지 말자
 {
-	int * arr1 = (int*)malloc(sizeof(int) * 3);
-	int * arr2 = (int*)calloc(3, sizeof(int));
-
-	printf("arr1 %p %d\n", arr1, *arr1);
-	printf("arr1 %p %d\n", arr1 + 1, *(arr1 + 1));
-	printf("arr1 %p %d\n", arr1 + 2, *(arr1 + 2));
-
-	printf("arr2 %p %d\n", arr2, *arr2);
-	*(arr2 + 1) = 1;
-	printf("arr2 %p %d\n", arr2 + 1, *(arr2 + 1));
-	*(arr2 + 2) = 2;
-	printf("arr2 %p %d\n", arr2 + 2, *(arr2 + 2));
-
-	memset(arr1, -1, sizeof(int) * 3);
-
-	printf("arr1 %p %d\n", arr1, *arr1);
-	printf("arr1 %p %d\n", arr1 + 1, *(arr1 + 1));
-	printf("arr1 %p %d\n", arr1 + 2, *(arr1 + 2));
-
-	free(arr2);
-	free(arr1);
+	float aver;
+	float sum = 0;
+	for (int i = 0; i < array_length; i++) {
+		sum += array_name[i];
+	}
+	aver = sum / array_length;
+	return aver;
 }
-*/
+
+//길이가 정해진 배열을 for문 rand함수를 이용해 배열 원소 채우기, 
+int* Random1(int* array_name, int array_length) {
+	for (int i = 0; i < array_length; i++) {
+		srand(i);//시드값을 주는 rand함수, i가 증가하면서 시드값도 자연히 바뀐다.
+		array_name[i] = rand();//rand함수 사용시 time헤더와 stdlib헤더 필수
+	}
+	return array_name;
+}
+
+int* Random2(int* array_name, int array_length) {
+	for (int i = 0; i < array_length; i++) {
+		srand(i);
+		*(array_name + i) = rand(); //배열의 주소 + i(++)로 연속되는 배열의 성질을 이용한 원소 채우기
+	}
+	return array_name;
+}
+
+int* Random3(int* array_name, int array_length) {
+	for (int i = 0; i < array_length; i++) {
+		srand(i);
+		*(array_name++) = rand();//배열의 주소 ++(증가연산자)로 연속되는 배열의 성질을 이용한 원소 채우기
+	}
+	return (array_name - array_length);
+}
+
+void print_array(int* array_name, int array_length) {
+	for (int i = 0; i < array_length; i++) {
+		printf("%p:  %d\n", &array_name[i], array_name[i]);//%p(포인터(주소) 출력) 주소와 값을 확인한다
+	}
+}
+
+
+//10가지 수 중 가장 큰수, 작은수, 합, 평균 출력하기 배열
+int*  ArrayTest()// 10개의 크기를 가지는 배열과 그 안의 랜덤한 숫자를 집어넣는 함수
+{
+	int arr[10];
+	for (int i = 0; i < 10; i++)
+	{
+		srand(i);// 랜덤에 시드를 부여하는 함수
+		arr[i] = rand();// 랜덤한 숫자를 i번째에 삽입
+	}
+	printf("arr의 값\n");
+
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d번째 배열의 수 = %d\n", i + 1, arr[i]);
+	}
+	return arr;
+}
+
+void  ArrayTest2(int* arr, int size)// size의 크기를 가지는 배열과 그 안의 랜덤한 숫자를 집어넣는 함수
+{
+	for (int i = 0; i < size; i++)
+	{
+		srand(i);// 랜덤에 시드를 부여하는 함수
+		arr[i] = rand();// 랜덤한 숫자를 i번째에 삽입
+	}
+}
+
+void ArrayPrint(int* arr, int size) {
+	printf("arr의 값\n");
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d번째 배열의 수 = %d\n", i + 1, arr[i]);
+	}
+}
+
+int ArrayMax(int * array_name, int array_length) // 배열중 가장 큰 숫자 찾기
+{
+	int maxnum = array_name[0];
+	for (int i = 0; i < array_length; i++)
+	{
+		if (array_name[i] > maxnum) {
+			maxnum = array_name[i];
+		}
+	}
+	return maxnum;
+}
+
+int ArrayMin(int * arr, int len)
+{
+	int min = arr[0];
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] < min) {
+			min = arr[i];
+		}
+	}
+	return min;
+}
+
+int ArraySum(int * arr, int len)
+{
+	int sum = 0;
+	for (int i = 0; i < len - 1; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
+float ArrayEvry(int * arr, int len)
+{
+	float sum = 0;
+	for (int i = 0; i < len - 1; i++)
+	{
+		sum += (float)arr[i];
+	}
+	return sum / len;
+}

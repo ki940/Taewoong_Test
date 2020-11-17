@@ -18,23 +18,28 @@
     <ClCompile Include="main.cpp">
       <Filter>리소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="TestFor.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="TestIf.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPointer.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="TestStruct.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="TestString.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="nFuntion.cpp">
       <Filter>리소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="nFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

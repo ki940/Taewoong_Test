@@ -2,64 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "header.h"
 //구조체? 사용자가 임의로 만드는 새로운 자료형
 //struct
 //struct NAME{   };
 //ex)
 
-struct Name {
-	char name[10];
-	int age;
-	char * gender;
-};
 
 
-struct PERSON {
-	int age;
-	char* name;
-	char gen[7];
-	int ID;
-	int score;
-
-	/*
-	PERSON(PERSON* p) {
-		age = p->age;
-		name = p->name;
-		strcpy(gen, p->gen);
-		ID = p->ID;
-		score = p->score;
-	}
-
-	PERSON(int _age, char* _name, char* _gen, int _ID, int _score): age(_age), name(_name), ID(_ID), score(_score) {
-		strcpy(gen, _gen);
-	}
-
-	PERSON(int _age, char* _name, char* _gen, int _ID, int _score) {
-		age = _age;
-		name = _name;
-		strcpy(gen, _gen);
-		ID = _ID;
-		score = _score;
-	}
-
-	PERSON(int age, char* name, char* gen, int ID, int score) {
-		this->age = age;
-		this->name = name;
-		strcpy(this->gen, gen);
-		this->ID = ID;
-		this->score = score;
-	}*/
-
-	// -> == 스트럭트 포인터일때 대입 방법, = 와 같은 기능
-	void input(PERSON* p2, PERSON* p) {
-		p2->age = p->age;
-		p2->name = p->name;
-		strcpy(p2->gen, p->gen);
-		p2->ID = p->ID;
-		p2->score = p->score;
-	}
-};
 
 void input(PERSON* p2, PERSON* p) {
 	p2->age = p->age;

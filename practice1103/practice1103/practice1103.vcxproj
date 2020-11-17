@@ -124,12 +124,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyString.cpp" />
     <ClCompile Include="nFuntion.cpp" />
-    <ClCompile Include="TestFor.cpp" />
-    <ClCompile Include="TestIf.cpp" />
-    <ClCompile Include="TestPointer.cpp" />
-    <ClCompile Include="TestString.cpp" />
-    <ClCompile Include="TestStruct.cpp" />
+    <ClCompile Include="Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header.h" />
+    <ClInclude Include="MyString.h" />
+    <ClInclude Include="nFunction.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
