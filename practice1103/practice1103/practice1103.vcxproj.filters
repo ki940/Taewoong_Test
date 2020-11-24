@@ -27,6 +27,9 @@
     <ClCompile Include="MyString.cpp">
       <Filter>리소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="RspGame.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="nFunction.h">
@@ -39,6 +42,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MyString.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RspGame.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

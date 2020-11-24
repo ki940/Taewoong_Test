@@ -23,9 +23,12 @@ cpp 파일에 같은 이름의 .h 파일이 선언되어있어야 한다.
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <windows.h> //system("cls"), sleep 함수 사용
 
 
 #include "nFunction.h"
 #include "MyString.h"
 
 #include "Test.h"
+
+#include"RspGame.h"

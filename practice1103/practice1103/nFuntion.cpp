@@ -3,9 +3,11 @@
 
 
 //if 1번 대소비교
-void Compare(int x, int y)
+char Compare(int x, int y)
 {
-	printf("%c", (x > y ? '>' : x == y ? '=' : '<')); //삼항연산자
+	//printf("%c", (x > y ? '>' : x == y ? '=' : '<')); //삼항연산자 
+	return (x > y ? '>' : x == y ? '=' : '<');
+	//앞에값이 뒤보다 크면 '>' 같으면 '=' 작으면 '<' 표시하는 함수
 }
 
 // 지역변수 전역변수

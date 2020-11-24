@@ -94,7 +94,7 @@ void Test_strcpy()
 //두 문자열 붙이기
 //동적 메모리 할당과 malloc(sizeof(char)*문자열의 길이) 등을 물어본다
 
-int TestStringAttech()
+void TestStringAttech()
 {
 	char a[10] = "attech";
 	char b[20] = "Test"; // a문자열을 붙여 포함할 것이기에 두 문자열의 합만큼 배열이 커야한다
@@ -108,7 +108,7 @@ int TestStringAttech()
 
 
 //문자열 안에서 문자 검색하기(본문은 문자로 문자열 검색하기가 됨, 물어볼것)
-int TestStringSerch()
+void TestStringSerch()
 {
 	char s1[30] = "a about find a in charstring";
 	int aNum = 0; // 검색된 a의 갯수
