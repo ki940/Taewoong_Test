@@ -349,3 +349,26 @@ void Test_DynamicAllocation()
 	free(arr1);
 }
 
+
+
+void testMove()
+{
+	char input_x = '\0';
+	int x = 0;
+	while (true) {
+
+		scanf("%c", &input_x);
+
+		if (input_x == 'a' || input_x == 'A') {
+			x = x - 1;
+			printf("%d\n", x);
+		}
+		else if (input_x == 'd' || input_x == 'D') {
+			x = x + 1;
+			printf("%d\n", x);
+		}
+	}
+
+}
+
+

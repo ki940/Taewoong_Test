@@ -92,6 +92,23 @@ char* RspValueCompare2(int playerValue)
 	}
 }
 
+const char* RspValueCompare3(int playerValue)
+{
+	if (playerValue < 0 || playerValue > 2) return "다시 입력 부탁드립니다.\n";
+	int computer = RandomValue();
+	DrawRSP("컴퓨터", computer); // 5.앞의 결과를 지우고 컴퓨터가 무엇을 냈는지 그림
+
+	switch ((playerValue - computer + 3) % 3)
+	{
+	case 0:
+		return "플레이어와 컴퓨터가 비겼습니다\n";
+	case 1:
+		return "플레이어가 이겼습니다\n";
+	case 2:
+		return "플레이어가 졌습니다.\n";
+	}
+}
+
 void RspGameTest()
 {
 	int playerValue;
@@ -117,11 +134,13 @@ int delay = 2;
 */
 
 
+
 // b.화면을 지우는 함수
 void Clear() {
-	for (int i = 0; scene[i] != NULL; i++) {
+	for (int i = 0; scene[i] != NULL; i++) { //문자열 끝까지 scene을 공백으로 채우기
 		scene[i] = ' ';
-	} //현재 오류!
+		//혹시 모를 오류 방지
+	}
 	system("cls"); // cmd 화면 지우는 함수에요 #include <windows.h> 헤더가 필요합니다.
 }
 // c.화면을 그리는 함수
@@ -144,10 +163,10 @@ void DrawRSP(const char* name, int value) {
 	Clear();
 	const char* rsp[3] = { "가위", "바위", "보" };
 	char str[50] = {};
-	strcat(scene, name);
-	strcat(scene, "가 ");
-	strcat(scene, rsp[value]);
-	strcat(scene, "를 냈습니다.\n");
+	strcat(str, name);
+	strcat(str, "가 ");
+	strcat(str, rsp[value]);
+	strcat(str, "를 냈습니다.\n");
 
 	for (int i = 0; i < strlen(str); i++) {
 		scene[i] = str[i];
@@ -156,22 +175,7 @@ void DrawRSP(const char* name, int value) {
 	Sleep(delay * 1000);
 }
 // 게임: 반환하는 값을 그림! 
-const char* RspValueCompare3(int playerValue)
-{
-	if (playerValue < 0 || playerValue > 2) return "다시 입력 부탁드립니다.\n";
-	int computer = RandomValue();
-	DrawRSP("컴퓨터", computer); // 5.앞의 결과를 지우고 컴퓨터가 무엇을 냈는지 그림
 
-	switch ((playerValue - computer + 3) % 3)
-	{
-	case 0:
-		return "플레이어와 컴퓨터가 비겼습니다\n";
-	case 1:
-		return "플레이어가 이겼습니다\n";
-	case 2:
-		return "플레이어가 졌습니다.\n";
-	}
-}
 void RspGameTest2()
 {
 	int playerValue;

@@ -30,6 +30,9 @@
     <ClCompile Include="RspGame.cpp">
       <Filter>리소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GameFrame.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="nFunction.h">

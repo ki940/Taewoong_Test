@@ -21,7 +21,7 @@ void Test_swap3(); // 순서에 위치하지 않음. 나중에 찾기 어려움
 
 
 int Test_ReferenceVariable();
-
+void testMove();
 
 
 //string 파일로 따로 분리할것. 
