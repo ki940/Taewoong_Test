@@ -131,6 +131,7 @@
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameFrame.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="nFunction.h" />

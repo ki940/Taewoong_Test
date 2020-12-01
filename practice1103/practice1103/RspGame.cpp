@@ -92,13 +92,20 @@ char* RspValueCompare2(int playerValue)
 	}
 }
 
-const char* RspValueCompare3(int playerValue)
+const  char * RSP(const char * name, int value)
 {
-	if (playerValue < 0 || playerValue > 2) return "다시 입력 부탁드립니다.\n";
-	int computer = RandomValue();
-	DrawRSP("컴퓨터", computer); // 5.앞의 결과를 지우고 컴퓨터가 무엇을 냈는지 그림
+	const char* rsp[3] = { "가위", "바위", "보" };
+	char str[50] = { };
+	strcat(str, name);
+	strcat(str, "가 ");
+	strcat(str, rsp[value]);
+	strcat(str, "를 냈습니다.\n");
+	return const_cast<const char*>(str);
+}
 
-	switch ((playerValue - computer + 3) % 3)
+const char* RspValueCompare3(int value)
+{
+	switch (value)
 	{
 	case 0:
 		return "플레이어와 컴퓨터가 비겼습니다\n";
@@ -120,74 +127,71 @@ void RspGameTest()
 	}
 }
 
-
-char scene[50] = {}; //임의의 화면 -> 이 배열을 통해서만 그리고 지우고 합니다
-int delay = 2;
-
-/*
-1 -> a-1 -> b -> c
- (입력)-> 2
-		 -> 3 -> a-2 -> b -> c
-		 (게임)-> 4 -> a-2 -> b -> c
-				 (예외처리 통과 후)-> 5 -> a-2 -> b -> c
- (입력결과가 4일때)-> 6 -> a-2 -> b -> c
-*/
-
-
-
-// b.화면을 지우는 함수
-void Clear() {
-	for (int i = 0; scene[i] != NULL; i++) { //문자열 끝까지 scene을 공백으로 채우기
-		scene[i] = ' ';
-		//혹시 모를 오류 방지
-	}
-	system("cls"); // cmd 화면 지우는 함수에요 #include <windows.h> 헤더가 필요합니다.
-}
-// c.화면을 그리는 함수
-void Display()
-{
-	printf("%s", scene);
-}
-//a-1.화면을 text를 scene에 넣고 그리는 함수
-void Draw(const char* str) {
-	Clear(); // 이전 그림을 지우는 부분
-	for (int i = 0; i < strlen(str); i++) {
-		scene[i] = str[i];
-	}
-	Display(); // 그리는 부분
-	Sleep(delay * 1000); // 그린걸 보여주는 부분 (1000 = 1초)
-	// 전체 시스템을 멈춰서 보여줌!
-}
-// a-2.Draw와 같은 기능: 누가 무엇을 냈는지 그림!
-void DrawRSP(const char* name, int value) {
-	Clear();
-	const char* rsp[3] = { "가위", "바위", "보" };
-	char str[50] = {};
-	strcat(str, name);
-	strcat(str, "가 ");
-	strcat(str, rsp[value]);
-	strcat(str, "를 냈습니다.\n");
-
-	for (int i = 0; i < strlen(str); i++) {
-		scene[i] = str[i];
-	}
-	Display();
-	Sleep(delay * 1000);
-}
-// 게임: 반환하는 값을 그림! 
-
-void RspGameTest2()
-{
-	int playerValue;
-	while (1) {
-		Draw("0. 가위, 1. 바위, 2. 보 숫자를 입력하시오: "); //1. 그리고
-		scanf("%d", &playerValue); //2. 입력
-		DrawRSP("플레이어", playerValue);//3. 지우고 누가 무엇을 냈는지 그림
-
-		Draw(RspValueCompare3(playerValue));//4. 지우고 게임 결과를 그림
-		if (playerValue == 4) {
-			Draw("가위바위보 게임을 그만합니다\n"); // 6. 앞의 그림을 지우고 그만두는 결과를 그림
-			break;
-		}
-	}
-}
+//
+//
+///*
+//1 -> a-1 -> b -> c
+// (입력)-> 2
+//		 -> 3 -> a-2 -> b -> c
+//		 (게임)-> 4 -> a-2 -> b -> c
+//				 (예외처리 통과 후)-> 5 -> a-2 -> b -> c
+// (입력결과가 4일때)-> 6 -> a-2 -> b -> c
+//*/
+//
+//
+//// b.화면을 지우는 함수
+//void Clear() {
+//	for (int i = 0; scene[i] != NULL; i++) { //문자열 끝까지 scene을 공백으로 채우기
+//		scene[i] = ' ';
+//		//혹시 모를 오류 방지
+//	}
+//	system("cls"); // cmd 화면 지우는 함수에요 #include <windows.h> 헤더가 필요합니다.
+//}
+//// c.화면을 그리는 함수
+//void Display()
+//{
+//	printf("%s", scene);
+//}
+////a-1.화면을 text를 scene에 넣고 그리는 함수
+//void Draw(const char* str) {
+//	Clear(); // 이전 그림을 지우는 부분
+//	for (int i = 0; i < strlen(str); i++) {
+//		scene[i] = str[i];
+//	}
+//	Display(); // 그리는 부분
+//	Sleep(delay * 1000); // 그린걸 보여주는 부분 (1000 = 1초)
+//	// 전체 시스템을 멈춰서 보여줌!
+//}
+//// a-2.Draw와 같은 기능: 누가 무엇을 냈는지 그림!
+//void DrawRSP(const char* name, int value) {
+//	Clear();
+//	const char* rsp[3] = { "가위", "바위", "보" };
+//	char str[50] = {};
+//	strcat(str, name);
+//	strcat(str, "가 ");
+//	strcat(str, rsp[value]);
+//	strcat(str, "를 냈습니다.\n");
+//
+//	for (int i = 0; i < strlen(str); i++) {
+//		scene[i] = str[i];
+//	}
+//	Display();
+//	Sleep(delay * 1000);
+//}
+//// 게임: 반환하는 값을 그림! 
+//
+//void RspGameTest2()
+//{
+//	int playerValue;
+//	while (1) {
+//		Draw("0. 가위, 1. 바위, 2. 보 숫자를 입력하시오: "); //1. 그리고
+//		scanf("%d", &playerValue); //2. 입력
+//		DrawRSP("플레이어", playerValue);//3. 지우고 누가 무엇을 냈는지 그림
+//
+//		Draw(RspValueCompare3(playerValue));//4. 지우고 게임 결과를 그림
+//		if (playerValue == 4) {
+//			Draw("가위바위보 게임을 그만합니다\n"); // 6. 앞의 그림을 지우고 그만두는 결과를 그림
+//			break;
+//		}
+//	}
+//}
