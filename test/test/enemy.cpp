@@ -16,9 +16,22 @@ bool enemy::Delete()
 	return true;
 }
 
-void enemy::Draw(Screen * screen)
+void enemy::Draw(Screen * screen, Player player)
 {
-
-	mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
-
+	/*
+	//플레이어 포스는 임의로 70 + 5 애너비는 75 + 4 
+	//플레이어 포스 + 랭스 < 애너미 포스, 플레이어 포스 > 에너미 포스 + 랭스 일 때만 그려진다
+	if (pos > player.pos + player.face_size || pos + face_size < player.pos)
+		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
+	*/
+	//조건 수정 pos 가 플레이어값보다 크면 감소 pos가 플레이어보다 작으면 증가, 
+	if (pos > player.pos + player.face_size)
+	{	
+		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
+	}
+	else if (pos + face_size < player.pos)
+	{
+		pos++;
+		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
+	}
 }
