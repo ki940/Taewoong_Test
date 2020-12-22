@@ -9,10 +9,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameFrame.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameFrame.h" />
     <ClInclude Include="ShootingGame.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="GameLoop.h" />
   </ItemGroup>
 </Project>

@@ -6,4 +6,4 @@
 #include<Windows.h>
 #include<conio.h>
 
-#include"GameFrame.h"
+#include"Scene.h"
