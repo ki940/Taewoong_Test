@@ -7,6 +7,8 @@ typedef struct enemy {
 	int face_size;
 	int pos = 70;
 	int speed = 1;
+	int count = 0;
+	int delay = 0;
 
 	enemy(const char* face, int pos);
 	bool Delete();
