@@ -10,6 +10,7 @@ typedef struct enemy {
 	int pos = 70; // 애너미 위치
 	int count = 0;
 	int delay = 0;
+	bool DrawAvailable = 0;
 
 	enemy(const char* face, int pos);
 	void Init(const char * face, Screen * screen);

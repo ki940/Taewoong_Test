@@ -21,12 +21,25 @@ void control_enemies::init(Enemy face, int array_number, Screen * screen)
 	}
 }
 
+
 void control_enemies::Draw(Screen * screen, Player player)
 {
+
 	for (int i = 0; i < max_number; i++) {
-		objacts[i].Draw(screen, player);
+		//if (DrawAvailable = TRUE) 
+		//함수나 구조체, 또는 if문을 잘못 이해하고 사용한듯 적용되지 않음
+		//위 if문은 objacts의 draw를 관리해보려 사용했으나 적용되지 않음.
+
+			objacts[i].Draw(screen, player);
+		
+		// obhacts = enemy 구조체
+		//즉 이건 enemy구조체의 draw, 
+		//그리기를 제어하려면 이 반복문 내에 if문을 걸거나 enemy.cpp에서 관리
+
 	}
+
 }
+
 
 void control_enemies::Delete()
 {
