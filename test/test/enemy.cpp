@@ -12,6 +12,15 @@ enemy::enemy(const char * face, int pos)
 
 }
 
+void enemy::Init(const char * face, Screen * screen)
+{
+	srand(rand());
+	this->pos = rand() % screen->size; // 랜덤값이 스크린크기보다 안 커지게 처리
+	this->face_size = strlen(face);
+	this->face = (char*)malloc(sizeof(char) * this->face_size);
+	mStrncpy_s(this->face, face_size, face, face_size);
+}
+
 bool enemy::Delete()
 {
 	free(face);
@@ -59,6 +68,7 @@ void enemy::Draw(Screen * screen, Player player)
 		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
 		break;
 	}
+	delay = 0;
 	
 
 }

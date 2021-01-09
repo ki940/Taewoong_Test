@@ -1,2 +1,7 @@
-﻿  enemy.cpp
+﻿  control_enemies.cpp
+  enemy.cpp
+  main.cpp
+  player.cpp
+  screen.cpp
+  코드를 생성하고 있습니다...
   test.vcxproj -> D:\GitPractice\Taewoong_Test\test\Debug\test.exe
