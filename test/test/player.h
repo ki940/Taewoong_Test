@@ -4,7 +4,8 @@
 typedef struct player {
 	char* face;
 	int face_size;
-	int pos = 70;
+	int pos;
+	int Playerincounter;
 
 	player(const char* face, int pos);
 	bool Delete();

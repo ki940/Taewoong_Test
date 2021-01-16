@@ -2,10 +2,10 @@
 #include "header.h"
 
 int main() {
-	Screen screen(120); //스크린 구조체의 스크린이란 이름의 변수
+	Screen screen(80); //스크린 구조체의 스크린이란 이름의 변수
 	Player player("0-0┏", 40);
 
-	Enemy enemy("*_*", 15); //int num [10] ;
+	Enemy enemy("*_*",&screen); //int num [10] ;
 	control_enemies array_init;
 	int enemynumber = 10;
 	array_init.init(enemy,enemynumber, &screen);
@@ -45,7 +45,7 @@ int main() {
 	*/
 	screen.Delete();
 	player.Delete();
-	//enemy.Delete();
+	//enemy.Delete();//기존 단일 애너미 생성시에 동적할당 해제 함수
 	array_init.Delete();
 	exit(1);
 	return 0;

@@ -7,6 +7,7 @@ player::player(const char * _face, int _pos)
 	face_size = strlen(_face);
 	face = (char*)malloc(sizeof(char) * face_size);
 	mStrncpy_s(face, face_size, _face, face_size);
+	Playerincounter = 0;
 }
 
 bool player::Delete()
@@ -45,6 +46,7 @@ void player::Input()
 
 void player::Draw(Screen* screen)
 {
+	if (Playerincounter > 2) return;
 	if (pos < 0)  pos = 0;
 	else if (pos > screen->size - face_size) pos = screen->size - face_size;
 	mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
