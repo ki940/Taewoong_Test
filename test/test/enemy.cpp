@@ -6,7 +6,7 @@ enemy::enemy(const char * face,Screen * screen)
 	this->Init(face, screen);
 }
 
-void enemy::posinit(Screen * screen)
+void enemy::InitPos(Screen * screen)
 {
 	srand(rand());
 	if (rand() % 2 == 0) pos = 0;
@@ -28,8 +28,8 @@ void enemy::Init(const char * face, Screen * screen)
 	this->face = (char*)malloc(sizeof(char) * this->face_size);
 	memset(this->face, '\0', this->face_size);//face
 	mStrncpy_s(this->face, face_size-1, face, face_size-1);
-	posinit(screen);
-	delay = 0;
+	InitPos(screen);
+	//delay = 0;
 }
 
 bool enemy::Delete()
@@ -38,7 +38,32 @@ bool enemy::Delete()
 	return true;
 }
 
-void enemy::Draw(Screen * screen, Player player)
+void enemy::UpdatePos(Screen* screen, Player * player)
+{
+	if (DrawAvailable == false) return;
+	if (player->DrawAvailable() == false) return;
+
+	if (pos > player->pos + player->face_size)
+	{
+		pos -= 0.1f;
+
+	}
+	else if (pos + face_size < player->pos)
+	{
+		pos += 0.1f;
+
+	}
+	else
+	{
+		DrawAvailable = false; // 캐릭터의 값보다 크거나 작지 않으면 그리지 않음
+
+		//delay = 0;
+		InitPos(screen);
+		player->overlap++;//플레이어와 적이 만나면 인카운터 증가
+	}
+}
+
+void enemy::Draw(Screen * screen)
 {
 	/*
 	//플레이어 포스는 임의로 70 + 5 애너비는 75 + 4 
@@ -63,53 +88,8 @@ void enemy::Draw(Screen * screen, Player player)
 	
 
 	if (DrawAvailable == false) return;
-	
-	if (pos > player.pos + player.face_size)
-	{
-		pos -= 0.1f;
-	
-	}
-	else if (pos + face_size < player.pos)
-	{
-		pos += 0.1f;
-	
-	}
-	else
-	{
-		DrawAvailable = false; // 캐릭터의 값보다 크거나 작지 않으면 그리지 않음
 
-		delay = 0;
-		posinit(screen);
-		player.Playerincounter++;//플레이어와 적이 만나면 인카운터 증가
-	}
 
-	if (DrawAvailable == false) return;
-
-	if (delay > 20) {
-		delay = 0;
-	}
 	mStrncpy_s(screen->scene + (int)pos, screen->size - (int)pos, face, face_size - 1);
-	delay++;
-
-	/*
-	if (pos + face_size < player.pos) count++;
-	if (pos > player.pos + player.face_size) count--;
-	if (count > 15 || count < -15)
-	{
-		delay = (count / 15);
-		count = 0;
-	}
-	switch (delay) {
-	case 0 : mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
-		break;
-	case 1: pos++; 
-		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
-		break;
-	case -1: pos--; 
-		mStrncpy_s(screen->scene + pos, screen->size - pos, face, face_size);
-		break;
-	}
-	delay = 0;
-	*/
 
 }

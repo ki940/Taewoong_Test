@@ -31,7 +31,8 @@ int main() {
 			//enemies[i].Draw(&screen, player)
 		}
 		*/
-		array_init.Draw(&screen, player);
+		array_init.Update(&player);
+		array_init.Draw(&screen, &player);
 
 		player.Draw(&screen);
 		screen.Display();

@@ -15,7 +15,9 @@ struct control_enemies {
 	
 	void init(Enemy face, int array_number, Screen * screen);
 
-	void Draw(Screen * screen, Player player);
+	void Update(Player * player);
+
+	void Draw(Screen * screen, Player * player);
 
 	void Delete();
 };
