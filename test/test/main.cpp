@@ -4,9 +4,11 @@
 int main() {
 	Screen screen(80); //스크린 구조체의 스크린이란 이름의 변수
 	Player player("0-0┏", 40);
-
+	
 	Enemy enemy("*_*",&screen); //int num [10] ;
 	control_enemies array_init;
+	//Bullet bullet(&player);
+
 	int enemynumber = 10;
 	array_init.init(enemy,enemynumber, &screen);
 	//가져올 애너미 구조체 변수명, 늘어날 배열의 갯수, 그릴 장소
@@ -35,6 +37,7 @@ int main() {
 		array_init.Draw(&screen, &player);
 
 		player.Draw(&screen);
+		//bullet.Draw(&screen);
 		screen.Display();
 	}
 	/*

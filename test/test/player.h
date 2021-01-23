@@ -6,6 +6,9 @@ typedef struct player {
 	int face_size;
 	int pos;
 	int overlap;
+	bool face_direction; //0일시 왼쪽 1일시 오른쪽 방향으로 결정 
+	//매크로? 어떤 설정기능을 쓰면 0을 Left 1을 Right로 설정할수 있을거같은데
+	//그 방법은 여기서는 어떻게쓰는지 잘 모르겠음.
 	bool DrawAvailable() {
 		//if (overlap > 0) return false;
 		//else true;

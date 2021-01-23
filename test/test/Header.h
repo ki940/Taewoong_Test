@@ -10,3 +10,4 @@
 #include "player.h"
 #include "enemy.h"
 #include "control_enemies.h"
+#include "bullet.h"

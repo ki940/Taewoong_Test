@@ -1,4 +1,9 @@
-﻿  control_enemies.cpp
+﻿  bullet.cpp
+d:\gitpractice\taewoong_test\test\test\bullet.cpp(6): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+d:\gitpractice\taewoong_test\test\test\bullet.cpp(7): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\gitpractice\taewoong_test\test\test\bullet.cpp(10): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+d:\gitpractice\taewoong_test\test\test\bullet.cpp(11): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  control_enemies.cpp
 d:\gitpractice\taewoong_test\test\test\control_enemies.cpp(15): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   enemy.cpp
 d:\gitpractice\taewoong_test\test\test\enemy.cpp(13): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
